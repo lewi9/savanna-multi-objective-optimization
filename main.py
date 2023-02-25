@@ -28,11 +28,11 @@ functions = [f1, f2]
 constraints = []
 
 ## Lims of variables: x1, x2, x3 ...
-lims = [[-4,4],[-4,4],[-4,4],[-4,4],[-4,4]]
+lims = [[-4,4]]
 
 ## Expected values of f1(x1, x2, ...), f2(x1, x2, ...)
 ## Only when created gifs are needed
-expectedResultLims = [[0,260], [-260,0]]
+expectedResultLims = [[0,1], [0,1]]
 
 
 ## !! Parameters of algorithm !!
@@ -50,7 +50,7 @@ bins = areaExplore = 20
 ## default rho = 0, rho > 0 - worse solutions, but less
 rho = densityOfParetoFront = 0
 
-## Create gif or not
+## Create gif or not, only for functions f(x,y)
 record = 0
 
 ## Init variables

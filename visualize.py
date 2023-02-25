@@ -3,13 +3,13 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import copy 
 
-outputDir = "figures/set2.png"
+outputDir = "figures/set3.png"
 
 title = "paretoFront"
 
-inputDir = "results/paretoFront2.txt"
+inputDir = "results/paretoFront3.txt"
 
-lims = [[0,260],[-260,0]]
+lims = [[0,1],[0,1]]
 
 paretoFront= pd.read_csv(inputDir, names=["X","Y"], sep="\t")
 
