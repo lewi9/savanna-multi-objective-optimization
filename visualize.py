@@ -9,7 +9,7 @@ title = "paretoFront"
 
 inputDir = "results/paretoFront5.txt"
 
-lims = [[0,1],[0,5]]
+lims = [[0,1],[0,1]]
 
 paretoFront= pd.read_csv(inputDir, names=["X","Y"], sep="\t")
 
