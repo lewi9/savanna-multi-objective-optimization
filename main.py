@@ -62,11 +62,17 @@ rho = densityOfParetoFront = 0
 
 ## Create gif or not, only for 2 functions f1(x1,x2), f2(x1,x2)
 record = 0
+FPS = 3
 
 ## Init variables
 paretoFront = []
 paretoArgs = []
 
+### Create gif - security check
+if len(lims) != 2 or len(functions) != 2:
+    record = 0
+###
+    
 
 ### Create gif - init variables
 if record == 1:
@@ -285,7 +291,7 @@ if record == 1:
     for _ in range(10):
         images.append(imageio.imread(file_path))
 
-    imageio.mimsave(gifDir, images, fps=3)
+    imageio.mimsave(gifDir, images, FPS=3)
 
     ## remove files
     for filename in set(filenames1):
