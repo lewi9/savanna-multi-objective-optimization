@@ -8,49 +8,59 @@ import imageio
 import math
 from tqdm import tqdm
 
-## set3 - used i = 4, n = 4
+## set3 - used i = 1, n = 1
+
+## set5 - ZDT 3
 
 ## Variables with directories
-paretoFrontDir = "results/paretoFront3.txt"
-gifDir = "gifs/set3.gif"
-argsDir = "results/args3.txt"
+paretoFrontDir = "results/paretoFront5.txt"
+gifDir = "gifs/set5.gif"
+argsDir = "results/args5.txt"
 frameDir = "frames/"
 
 ## Functions to minimze
-f1 = lambda x: 1-math.exp((np.sum(np.array(x)-1/math.sqrt(len(lims)))**2)*-1)
-f2 = lambda x: 1-math.exp((np.sum(np.array(x)+1/math.sqrt(len(lims)))**2)*-1)
+#set4
+#f1 = lambda x: x[0]**2-x[1]
+#f2 = lambda x: -0.5*x[0]-x[1]-1
 
+f1 = lambda x : x[0]
+g1 = lambda x : 1 + 9/29 * np.sum(x[1:])
+h1 = lambda x : 1 - math.sqrt(f1(x)/g1(x))
+f2 = lambda x : g1(x) * h1(x)
 ## Constraints of functions <= 0
-#g1 = lambda x: x[0]**2 + x[1]**2 - 225
-#g2 = lambda x: x[0]-3*x[1]+10
-
+#set4
+#g1 = lambda x: -6.5 + x[0]/6 + x[1]
+#g2 = lambda x: -7.5 + 0.5*x[0] + x[1]
+#g3 = lambda x: -30 + 5*x[0] + x[1]
+    
 functions = [f1, f2]
 constraints = []
 
 ## Lims of variables: x1, x2, x3 ...
-lims = [[-4,4]]
+lims = [[0,1] for i in range(30)]
+print(lims)
 
 ## Expected values of f1(x1, x2, ...), f2(x1, x2, ...)
 ## Only when created gifs are needed
-expectedResultLims = [[0,1], [0,1]]
+expectedResultLims = [[-4,12], [-7,-5]]
 
 
 ## !! Parameters of algorithm !!
-maxCycles = 12
+maxCycles = 1200
 
-wildebeest = 60
-zebras = 13
-gazelles = 7
-predators = 8
+wildebeest = 120
+zebras = 25
+gazelles = 10
+predators = 4
 
-epsylon = gazellaSearchArea = standardDeviation = 0.1
+epsylon = gazellaSearchArea = standardDeviation = 0.01
 #default bins = 10, more bins - more chances to search optima of one function
 bins = areaExplore = 20
 
 ## default rho = 0, rho > 0 - worse solutions, but less
 rho = densityOfParetoFront = 0
 
-## Create gif or not, only for functions f(x,y)
+## Create gif or not, only for 2 functions f1(x1,x2), f2(x1,x2)
 record = 0
 
 ## Init variables
@@ -255,9 +265,11 @@ for k in tqdm(range(maxCycles), ascii=True, desc="Main"):
         ###
 
 ## Show pareto solutions in console
+
 for elem, elem2 in zip(paretoFront, paretoArgs):
     print(f"Args: {elem2}")
     print(f"Value: {elem}")
+
 ## Save pareto solutions and args of them to files
 np.savetxt(paretoFrontDir, paretoFront, delimiter='\t')
 np.savetxt(argsDir, paretoArgs, delimiter='\t')
