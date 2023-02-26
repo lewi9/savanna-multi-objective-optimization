@@ -1,4 +1,4 @@
-# Algorytm sawanna do optymalizacji wielkryterialnej funkcji z ograniczeniami
+# Algorytm sawanna do optymalizacji wielokryterialnej funkcji z ograniczeniami
 
 Algorytm został wymyślony przeze mnie, porzucony z powodu długiego czasu działania w porównaniu z innymi takimi jak NSGA-II.
 
