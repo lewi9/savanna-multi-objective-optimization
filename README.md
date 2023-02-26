@@ -57,9 +57,9 @@ Konieczne sprawdź czy wartości x1, x2, ..., mieszczą się w ograniczeniach i 
 - Porusz każde zwierze w przestrzeni x1, x2, ... zgodnie z zasadami dla danego gatunku\
 Przyjęte przeze mnie rodzaje ruchów to:\
 \
-Antylopy gnu poruszają się na lokalizację wyliczoną w następujący sposób: $x_i = N( \frac{obecnaPozycja_i + celStada_i}{2}, |obecnaPozycja_i-celStada_i|)$, gdzie $N$ to wartość z rozkładu normalnego\
+Antylopy gnu poruszają się na lokalizację wyliczoną w następujący sposób: $x_i = N( \frac{obecnaPozycja_i + celStada_i}{2}, |obecnaPozycja_i-celStada_i|)$,\ gdzie $N$ to wartość z rozkładu normalnego\
 \
-Zebry poruszają się zgodnie ze wzorem $x_i = U( min(obecnaPozycja_i,celStada_i), max(obecnaPozycja_i, celStada_i))$, gdzie $U$ to rozkład jednostajny\
+Zebry poruszają się zgodnie ze wzorem $x_i = U( min(obecnaPozycja_i,celStada_i), max(obecnaPozycja_i, celStada_i))$,\ gdzie $U$ to rozkład jednostajny\
 \
 Gazelle poruszają się zgodnie ze wzorem $x_i = N(celStada_i, epsylon)$\
 \
@@ -106,4 +106,4 @@ Zitzler-Deb-Thiele's function (zdt1)\
 ## Wnioski
 W trakcie tworzenia tego algorytmu przejrzałem różne publikacje naukowe związane z optymalizacją wielokryterialną. Ruch antylop gnu powstał na bazie Bare Bones PSO z pominięciem aspketu najlepszego lokalnego rozwiązania. Pozyskałem także wiedzę na temat różnych algorytmów do optymalizacji wielokryterialnej: VEGA, NSGA, MOPSO, SHEARPA. Dowiedziałem się o istnieniu algorytmów przeszukiwania metaheurystycznego takich jak: świetlikowe, nietoperze, pszczele, mrowiskowe, różne rodzaje PSO, pigwinie.\
 \
-Finalnie zmierzyłem się z próbą własnej implementacji optymalizacji wielokryterialnej oraz porównałem wyniki korzystając z pakietu $pymoo$ (dla NSGA-II). Niestety, zaproponowane przezemnie rozwiązanie okazało się nieoptymalne, zbyt długi czas działania dla otrzymania satysfakcjonujących wyników (zdt test, który wykonałem tylko dla jednej funkcji, ponieważ już tyle wystarczyło, aby zakwestionować sens dalszych działań)
+Finalnie zmierzyłem się z próbą własnej implementacji optymalizacji wielokryterialnej oraz porównałem wyniki korzystając z pakietu **pymoo** (dla NSGA-II). Niestety, zaproponowane przezemnie rozwiązanie okazało się nieoptymalne, zbyt długi czas działania dla otrzymania satysfakcjonujących wyników (zdt test, który wykonałem tylko dla jednej funkcji, ponieważ już tyle wystarczyło, aby zakwestionować sens dalszych działań)
