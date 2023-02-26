@@ -4,7 +4,7 @@ Algorytm został wymyślony przeze mnie, porzucony z powodu długiego czasu dzia
 
 ## Działanie algorytmu
 
-Algorytm powstał na bazie inspiracji migracją antylopy gnu na sawannie. Stada tej antylopy wraz z zebrami oraz gazellami podróżują każdego roku w celu poszukiwania jedzenia. Podczas tej wędrówki wiele osobników ginie z powodu rwących rzek bądź ataków drapieżników.
+Algorytm powstał na bazie inspiracji migracją antylopy gnu na sawannie. Stada tej antylopy wraz z zebrami oraz gazelami podróżują każdego roku w celu poszukiwania jedzenia. Podczas tej wędrówki wiele osobników ginie z powodu rwących rzek bądź ataków drapieżników.
 
 Na początku należy zdefiniować funkcje np. w postaci lambda funkcji, które mają być minimalizowane oraz ograniczenia w takiej samej postaci, które będą sprawdzane, czy są nie większe niż zero np.:
 ```
@@ -40,7 +40,7 @@ Dodatkowymi parametrami są odległość poszukiwanych rozwiązań przez gazele 
 epsylon = gazellaSearchArea = standardDeviation = 0.01
 bins = areaExplore = 20
 ```
-Algorytm wykonuje następujące krok określoną liczbę razy (liczba cykli):
+Algorytm wykonuje następujące kroki określoną liczbę razy (liczba cykli):
 1. Wybierz cel dla stada. \
 Jeżeli jest to pierwsza iteracja cel wybierany jest losowo (są to wartości argumentów funkcji np. $x1 = 1$, $x2 = 3$)\
 Jeżeli jest to kolejna iteracja cel wybierany jest w następujący sposób:
@@ -50,7 +50,7 @@ Jeżeli jest to kolejna iteracja cel wybierany jest w następujący sposób:
 - Znormalizuj je, aby suma wartości $1/d$ wynosiła 1
 - Wybierz pewien przedział, a następnie wylosuj z niego jedno rozwiązanie, to ono będzie celem stada
 2. Wylosuj położenie startowe stada np. $x1=0$, $x2=0$
-3. Utwórz populację we wskazanej lokalizacji składającą się z odpowiedniej liczby antylop gnu, zebr i gazelli
+3. Utwórz populację we wskazanej lokalizacji składającą się z odpowiedniej liczby antylop gnu, zebr i gazeli
 4. Dopóki jakieś zwierzęta żyją wykonuj następujące kroki:
 - Oceń rozwiązanie reprezentowane przez każde zwierzę i zaaktualizuj listę rozwiązań optymalnych\
 Konieczne sprawdź czy wartości x1, x2, ..., mieszczą się w ograniczeniach i granicach.
@@ -63,7 +63,7 @@ gdzie $N$ to wartość z rozkładu normalnego\
 Zebry poruszają się zgodnie ze wzorem $x_i = U( min(obecnaPozycja_i,celStada_i), max(obecnaPozycja_i, celStada_i))$,\
 gdzie $U$ to rozkład jednostajny\
 \
-Gazelle poruszają się zgodnie ze wzorem $x_i = N(celStada_i, epsylon)$
+Gazele poruszają się zgodnie ze wzorem $x_i = N(celStada_i, epsylon)$
 
 - Następnie usuń z populacji $X$ losowych zwierząt, gdzie $X$ to liczba drapieżników (predators)
 
@@ -106,6 +106,6 @@ Zitzler-Deb-Thiele's function (zdt1)\
 ![Visualization 10](figures/tzdt1.jpg)
 
 ## Wnioski
-W trakcie tworzenia tego algorytmu przejrzałem różne publikacje naukowe związane z optymalizacją wielokryterialną. Ruch antylop gnu powstał na bazie Bare Bones PSO z pominięciem aspketu najlepszego lokalnego rozwiązania. Pozyskałem także wiedzę na temat różnych algorytmów do optymalizacji wielokryterialnej: VEGA, NSGA, MOPSO, SHEARPA. Dowiedziałem się o istnieniu algorytmów przeszukiwania metaheurystycznego takich jak: świetlikowe, nietoperze, pszczele, mrowiskowe, różne rodzaje PSO, pigwinie.\
+W trakcie tworzenia tego algorytmu przejrzałem różne publikacje naukowe związane z optymalizacją wielokryterialną. Ruch antylop gnu powstał na bazie Bare Bones PSO z pominięciem aspketu najlepszego lokalnego rozwiązania. Pozyskałem także wiedzę na temat różnych algorytmów do optymalizacji wielokryterialnej: VEGA, NSGA, MOPSO, SHEARPA. Dowiedziałem się o istnieniu algorytmów przeszukiwania metaheurystycznego takich jak: świetlikowe, nietoperze, pszczele, mrowiskowe, różne rodzaje PSO, pingwinie.\
 \
-Finalnie zmierzyłem się z próbą własnej implementacji optymalizacji wielokryterialnej oraz porównałem wyniki korzystając z pakietu **pymoo** (dla NSGA-II). Niestety, zaproponowane przezemnie rozwiązanie okazało się nieoptymalne, zbyt długi czas działania dla otrzymania satysfakcjonujących wyników (zdt test, który wykonałem tylko dla jednej funkcji, ponieważ już tyle wystarczyło, aby zakwestionować sens dalszych działań)
+Finalnie zmierzyłem się z próbą własnej implementacji optymalizacji wielokryterialnej oraz porównałem wyniki korzystając z pakietu **pymoo** (dla NSGA-II). Niestety, zaproponowane przeze mnie rozwiązanie okazało się nieoptymalne, zbyt długi czas działania dla otrzymania satysfakcjonujących wyników (zdt test, który wykonałem tylko dla jednej funkcji, ponieważ już tyle wystarczyło, aby zakwestionować sens dalszych działań)
