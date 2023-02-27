@@ -3,13 +3,13 @@ from pymoo.problems import get_problem
 from pymoo.optimize import minimize
 from pymoo.visualization.scatter import Scatter
 
-problem = get_problem("zdt3")
+problem = get_problem("zdt1")
 
-algorithm = NSGA2(pop_size=100)
+algorithm = NSGA2(pop_size=50)
 
 res = minimize(problem,
                algorithm,
-               ('n_gen', 200),
+               ('n_gen', 100),
                seed=1,
                verbose=False)
 
